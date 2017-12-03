@@ -1,5 +1,3 @@
-// 2016
-
 /*
 Statement of the problem:
 3-SUM in quadratic time. Design an algorithm for the 3-SUM problem that takes time proportional to n^2 in the worst case. 
