@@ -1,0 +1,27 @@
+/*
+Statement of the problem:
+Egg drop. Suppose that you have an n-story building (with floors 1 through n) and plenty of eggs. 
+An egg breaks if it is dropped from floor T or higher and does not break otherwise. 
+Your goal is to devise a strategy to determine the value of T given the following limitations on the number of eggs and tosses:
+
+Version 0: 1 egg, less or equal than T tosses.
+Version 1: approx 1 * lg n eggs and approx 1 * lg n tosses.
+Version 2: approx lg T eggs and approx 2 * lg T tosses.
+Version 3: 2 eggs and approx 2 * sqrt(n) tosses.
+Version 4: 2 eggs and less or equal than c sqrt(T) tosses for some fixed constant c.
+
+Solution:
+To determine the value of T, we should use the eggs such that the last egg available should break exactly when it is thrown from floor T.
+T is uniformly randomly chosen between 1 and n.
+
+Version 0: Start throwing the egg from floor 1, 2, ..., T.
+
+Version 1: Should do binary search for T in the array with values 1, 2, ..., n. Throw the first egg at floor n/2. If it doesn't break, throw it from floor (n/2+n)/2, otherwise from floor n/4. And so on ...
+
+Version 2: Throw the first egg from the floors 2^k, starting with k = 1, and continuing with 2, ..., lg n, until the egg breaks, which will happen when k_0 = floor(lg T). Then T belongs to the interval [2^{k_0-1}, 2^{k_0}), which has length 2^{k_0-1}. Using binary search as in Version 1, it is sufficient to have k_0 eggs to find T, and we have this number of eggs.
+
+Version 3: Throw the first egg from the floors k sqrt(n), starting with k = 1 and continuing with 2, ..., sqrt(n), and stopping at the first k when the egg breaks. This step uses at most sqrt(n) throws. Throw the second egg at the points (k-1) sqrt(n) + i, with i = 1, 2, sqrt(n)-1, and stop at the first i where the egg breaks. This will use at most 2 sqrt(n) throws.
+
+Version 4: Throw the first egg from the floors k^2, starting with k = 1, and continuing with 2, ..., sqrt(n), and stopping at the first floor where the egg breaks. Denote this floor by k_0. 
+Then k_0 <= ceiling(sqrt(T)). Throw the second egg between the floors (k_0-1)^2 + i, for i = 1, 2, ..., k_0^2-(k_0-1)^2 = 2k_0 - 1. Stop at the first floor where the egg breaks. In total we used at most 3 sqrt(T) (c = 3).
+ */
