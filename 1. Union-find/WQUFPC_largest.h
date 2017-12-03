@@ -1,5 +1,5 @@
 /*******************************************************************
-* Implementation of class Weighted Quick Union-Find 
+* Interface of class Weighted Quick Union-Find 
 * with Path Compression with find largest element (WQUFPC_largest) 
 *******************************************************************/
 
