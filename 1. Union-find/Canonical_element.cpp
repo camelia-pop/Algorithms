@@ -5,17 +5,13 @@ in the connected component containing i. The operations union(), connected(), an
 
 For example, if one of the connected components is {1, 2, 6, 9}, then the find() method should return 9 for each of the four elements in
 the connected components because 9 is larger 1, 2, and 6.
-*/
 
-/*
 Solution: 
+Implement the class WQUFPC_largest, which is similar to class WQUFPC with the following modifications.
 Add an additional vector data member to class WQUFPC called largest[] such that largest[i] = the largest element in the tree rooted at i.
-
 The member function find(i) will return largest[i].
           
 We read the edges from Canonical_element.txt.
-
-We implement weighted quick union find with path compression in one-pass.
 */
 
 #include "WQUFPC_largest.h"
