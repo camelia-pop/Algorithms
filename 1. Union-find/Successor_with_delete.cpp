@@ -1,6 +1,6 @@
 /*
 Statement of the problem:
-Successor with delete. Given a set of N integers S={0, 1, ..., N−1} and a sequence of requests of the following form:
+Successor with delete. Given a set of N integers S = {0, 1, ..., N−1} and a sequence of requests of the following form:
     - Remove x from S
     - Find the successor of x: the smallest y in S such that y >= x.
 
@@ -8,15 +8,15 @@ Design a data type so that all operations (except construction) should take loga
 */
 
 /*
-Solution: We use the structure of Weighted Quick Union-Find. 
-		  We hold an extra array where we remember the successor.
-		  The successor of each element of a given tree will be the largest element in the tree.
+Solution: 
+We use a structure similar to the Weighted Quick Union-Find class. The interface can be found in Successor.h and the implementation in Successor.cpp.
+
+We hold an extra array where we remember the successor of each element.
+The successor of each element in a connected component will be the largest element found in that connected component.
 		  
-		  At initialization, every node is their own successor.
-		  
-		  When we remove an element i, we create a link between i and i+1. The successor of i becomes equal to the successor of i+1. We are updating only the successors of the roots.
-		  
-		  When we remove i = n-1, there is no successor. We indicate this by setting the successor = n.
+At initialization, every element is their own successor.
+When we remove an element i, we create a link between i and i+1. The successor of i becomes equal to the successor of i+1. We are updating only the successors of the roots.
+When we remove i = n-1, there is no successor. We indicate this by setting the successor = n.
 */
 
 #include "Successor.h"
