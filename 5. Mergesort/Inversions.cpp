@@ -5,8 +5,10 @@ Given an array design a linearithmic algorithm to count the number of inversions
 
 Solution: 
 We will apply mergesort, which is a linearithmic algorithm.
-In the merging procedure of two ordered arrays a[l], ... a[m], and a[m+1], ..., a[r], if we need to swap elements a[i] and a[j], it means that (i, j), (i + 1, j), ..., (m, j) are pairs of indices in an inversion. In total we have m - i + 1 inversions.
-The total number of inversions = sum of the number of inversions we find when we have to do a swap in the merging procesure.
+In the merging procedure of two ordered arrays a[l], ... a[m], and a[m+1], ..., a[r], 
+if we need to swap elements a[i] and a[j], it means that (i, j), (i + 1, j), ..., (m, j) are pairs of indices in an inversion. 
+In total we have m - i + 1 inversions.
+The total number of inversions = sum of the number of inversions we find when we have to do a swap in the merging procedure.
 */
 
 #include <iostream>
