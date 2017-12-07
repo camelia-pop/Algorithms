@@ -2,6 +2,10 @@ The folder contains:
 
 (i) Data structures used to solved the problem in Pattern_recognition.pdf: 
 
+        Point.h, Point.cpp
+        
+        LineSegment.h
+
         BruteCollinearPoints.h, BruteCollinearPoints.cpp, BruteCollinearPoints_test.cpp 
         
         FastCollinearPoints.h, FastCollinearPoints.cpp, FastCollinearPoints_test.cpp 
