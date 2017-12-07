@@ -1,9 +1,11 @@
 /*
 Statement of the problem:
-Shuffling a linked list. Given a singly-linked list containing n items, rearrange the items uniformly at random. Your algorithm should consume a logarithmic (or constant) amount of extra memory and run in time proportional to n*log(n) in the worst case.
+Shuffling a linked list. Given a singly-linked list containing n items, rearrange the items uniformly at random. 
+Your algorithm should consume a logarithmic (or constant) amount of extra memory and run in time proportional to n*log(n) in the worst case.
 
 Solution:
-We create a Forward_list class and we add a data member shuffle().
+We create a Forward_list class to which we add a data member shuffle().
+See Forward_list.h and Forward_list.cpp.
 */
 
 #include "Forward_list.h"
