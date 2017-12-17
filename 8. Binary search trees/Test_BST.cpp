@@ -45,6 +45,4 @@ int main() {
 	cout << "Inorder non-recusive traversal with stack" << endl;
 	tree.stackTraversal();
 	cout << endl << endl;
-	
-	
 }
