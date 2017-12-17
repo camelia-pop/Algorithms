@@ -23,7 +23,7 @@ template <typename Key, typename Value>
 ostream &print(ostream &, const Node<Key, Value> * const);
 
 /**********************************
-* 				Node
+* 	       Node
 **********************************/
 template <typename Key, typename Value>
 class Node {
@@ -57,7 +57,7 @@ ostream &print(ostream &os, const Node<Key, Value> * const node) {
 }
 
 /**********************************
-* 		Binary search tree
+* 	Binary search tree
 **********************************/
 // display elements of BST inorder		
 template <typename Key, typename Value>
