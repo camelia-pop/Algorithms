@@ -10,4 +10,4 @@ The folder contains:
 
     8Puzzle.cpp
     
-(ii) Solutions to interview questions: Dynamic_median.cpp, Randomized_priority_queues.cpp, Taxicab.cpp 
+(ii) Solutions to interview questions: Dynamic_median.cpp, Median.h, Randomized_priority_queues.cpp, Taxicab.cpp 
