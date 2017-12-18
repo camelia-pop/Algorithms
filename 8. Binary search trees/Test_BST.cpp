@@ -60,9 +60,8 @@ int main() {
 	if (q.empty())
 		cout << "empty" << endl << endl;
 	else {
-		for (auto it = q.begin(); it != q.end(); ++it) {
+		for (auto it = q.begin(); it != q.end(); ++it) 
 			cout << it->get_key() << " ";
-		}
 		cout << endl;	
 	}
 }
