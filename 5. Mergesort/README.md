@@ -1,6 +1,6 @@
 The folder contains:
 
-(i) Data structures used to solved the problem in Pattern_recognition.pdf: 
+(i) Data structures used to solve the problem in Pattern_recognition.pdf: 
 
         Point.h, Point.cpp
         
