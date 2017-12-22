@@ -18,10 +18,7 @@ Then traverse the ordered array of sums and check for repetitions.
 
 using std::cout;
 using std::endl;
-using std::for_each;
-using std::min;
 using std::pair;
-using std::size_t;
 using std::vector;
 
 /*******************************************************
