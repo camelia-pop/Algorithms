@@ -26,9 +26,7 @@ value = a set of pairs (i, j) such that a[i] + a[j] = key.
 
 using std::cout;
 using std::endl;
-using std::for_each;
 using std::pair;
-using std::size_t;
 using std::unordered_map;
 using std::unordered_set;
 using std::vector;
