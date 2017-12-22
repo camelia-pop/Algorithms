@@ -1,12 +1,20 @@
 /*
-1. 4-SUM. Given an array a[] of n integers, the 4-SUM problem is to determine if there exist distinct indices i, j, k, and l such that a[i]+a[j]=a[k]+a[l]. Design an algorithm for the 4-SUM problem that takes time proportional to n^2 (under suitable technical assumptions).
+1. 4-SUM. Given an array a[] of n integers, the 4-SUM problem is to determine if there exist distinct indices i, j, k, and l 
+such that a[i]+a[j]=a[k]+a[l]. Design an algorithm for the 4-SUM problem that takes time proportional to n^2 
+(under suitable technical assumptions).
 
 Solution:
-We compute each sum of two elements and we enter it into an unordered set. Before including the two sum into the unordered set, we check if the sum is already contained there, which means that we found indices i, j, k, l such that a[i] + a[j] = a[k] + a[l] (assuming that the array a[] contains no repetitions).
+We compute each sum of two elements and we enter it into an unordered set. 
+Before including the two sum into the unordered set, we check if the sum is already contained there, 
+which means that we found indices i, j, k, l such that a[i] + a[j] = a[k] + a[l] (assuming that the array a[] contains no repetitions).
 
-Unordered sets are implemented using hash tables, and so the checking if a sum is contained in the set takes constant time, under the uniform hashing assumption.
+Unordered sets are implemented using hash tables, and so the checking if a sum is contained in the set takes constant time, 
+under the uniform hashing assumption.
 
-To find the indices that have equal two sums, we use on unordered multi-map using key = two sum and value = a set of pairs (i, j) such that a[i] + a[j] = key.
+To find the indices that have equal two sums, we use on unordered multi-map using
+key = two sum 
+and 
+value = a set of pairs (i, j) such that a[i] + a[j] = key.
 */
 
 #include <algorithm>
