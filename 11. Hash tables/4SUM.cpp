@@ -1,8 +1,12 @@
 /*
-1. 4-SUM. Given an array a[] of n integers, the 4-SUM problem is to determine if there exist distinct indices i, j, k, and l such that a[i]+a[j]=a[k]+a[l]. Design an algorithm for the 4-SUM problem that takes time proportional to n^2 (under suitable technical assumptions).
+1. 4-SUM. Given an array a[] of n integers, the 4-SUM problem is to determine if there exist distinct indices i, j, k, and l 
+such that a[i]+a[j]=a[k]+a[l]. Design an algorithm for the 4-SUM problem that takes time proportional to n^2 
+(under suitable technical assumptions).
 
 Solution:
-For all indices (i, j), such that 1 <= i < j <= n, put the sum a[i] + a[j] into an ordered array. This can be done using the same method that we used in the solution of the 3-SUM problem. It requires O(n^2) operations.
+For all indices (i, j), such that 1 <= i < j <= n, put the sum a[i] + a[j] into an ordered array. 
+This can be done using the same method that we used in the solution of the 3-SUM problem. 
+It requires O(n^2) operations.
 
 Then traverse the ordered array of sums and check for repetitions.
 */
