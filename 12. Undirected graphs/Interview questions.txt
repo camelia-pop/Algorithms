@@ -3,6 +3,7 @@
 Solution:
 Any recursion algorithm constructs a stack to remember where to return. 
 Implement the stack version of the recursive depth-first search algorithm. 
+
 (See DFS.h)
 
 2. Diameter and center of a tree. Given a connected graph with no cycles:
