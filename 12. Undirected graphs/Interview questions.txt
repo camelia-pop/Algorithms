@@ -1,7 +1,9 @@
 1. Nonrecursive depth-first search. Implement depth-first search in an undirected graph without using recursion.
 
 Solution:
-Any recursion algorithm constructs a stack to remember where to return. Implement the stack version of the recursive depth-first search algorithm. (See DFS.h)
+Any recursion algorithm constructs a stack to remember where to return. 
+Implement the stack version of the recursive depth-first search algorithm. 
+(See DFS.h)
 
 2. Diameter and center of a tree. Given a connected graph with no cycles:
 
@@ -10,7 +12,9 @@ Any recursion algorithm constructs a stack to remember where to return. Implemen
 	- Center: design a linear-time algorithm to find a vertex such that its maximum distance from any other vertex is minimized.
 
 Solution:
-Diameter: Use depth-first search starting from an arbitrary vertex, say 0, and find the endpoint of a longest path. Call the endpoint vertex start. Use another depth-first search from start. Find a longest path starting from start. This path is a longest simple path in the graph.
+Diameter: Use depth-first search starting from an arbitrary vertex, say 0, and find the endpoint of a longest path. 
+Call the endpoint vertex start. Use another depth-first search from start. Find a longest path starting from start. 
+This path is a longest simple path in the graph.
 
 Center: Return the middle point of a longest simple path in the graph.
 
@@ -32,9 +36,11 @@ Fix a node in the cycle. Given an edge entering the node, there is an exiting ed
 
 2) Assume that the degree of every vertex in a connected graph G is even.
 
-We will prove that the graph has an Euler cycle by induction on the number of edges in the graph. Let V be the number of vertices in the graph.
+We will prove that the graph has an Euler cycle by induction on the number of edges in the graph. 
+Let V be the number of vertices in the graph.
 
-Base case: The number of edges in the graph is V - 1, the graph is connected and each edge has even degree. Clearly, the graph contains an Euler cycle.
+Base case: The number of edges in the graph is V - 1, the graph is connected and each edge has even degree. 
+Clearly, the graph contains an Euler cycle.
 
 The induction hypothesis: Assume that any subgraph of G, with the same vertices as G but fewer edges, and such that every vertex has even degree, has an Euler cycle. Then G has an Euler cycle.
 
