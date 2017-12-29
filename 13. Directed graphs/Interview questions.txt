@@ -28,9 +28,3 @@ DAG: We start from each vertex a dfs. Along the first path that we travel, we re
 Digraph: Find the strongly connected components of the graph. This will allow us to find the kernel DAG, which is itself a DAG with vertices being the strongly connected components. If the kernel DAG has a vertex that can be reached from all the other vertices, then that vertex satisfies the conditions of the problems. Otherwise, such a vertex doesn't exist.
 
 (See DAG_test.cpp, Reachable_vertex_test.cpp, Digraph.h (for DAG), SCC.h (for any Digraph))
-
-4. 2 - satisfiability
-   Directed Euler path
-   Stringly connected components
-   Transitive closure
-   PageRank   
