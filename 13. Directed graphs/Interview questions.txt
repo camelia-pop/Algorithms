@@ -1,0 +1,36 @@
+1. Shortest directed cycle. 
+
+Given a digraph G, design an efficient algorithm to find a directed cycle with the minimum number of edges (or report that the graph is acyclic). The running time of your algorithm should be at most proportional to V(E+V) and use space proportional to E+V, where V is the number of vertices and E is the number of edges.
+
+Solution:
+From each vertex, start a depth-first search. Define a vector of boolean values, on Stack, that assigns true to each vertex added to the stack and false otherwise. When we choose the next vertex to be visited, we check if there is an edge between the current vertex and a vertex on the stack. If there is, we found a cycle. Otherwise, we continue the usual depth-first search procedure. Check each cycle and remember the smallest cycle.
+
+(See ShortestDirectedCycle_test.cpp)
+
+2. Hamiltonian path in a DAG.
+
+Given a directed acyclic graph, design a linear-time algorithm to determine whether it has a Hamiltonian path (a simple path that visits every vertex), and if so, find one.
+
+Solution:
+Find a topological order of the DAG. If the graph has a Hamiltonian path, then when we traverse the stack returned by the topological sorting of the DAG, we should find edges between every two consecutive vertices. Otherwise, the DAG does not have a Hamiltonian path.
+
+(See DAG_test.cpp, Digraph.h, HamiltonianPath.h, TopologicalSort.h)
+
+3. Reachable vertex.
+
+	- DAG: Design a linear-time algorithm to determine whether a DAG has a vertex that is reachable from every other vertex, and if so, find one.
+
+	- Digraph: Design a linear-time algorithm to determine whether a digraph has a vertex that is reachable from every other vertex, and if so, find one.
+
+Solution:
+DAG: We start from each vertex a dfs. Along the first path that we travel, we remember the last vertex (the vertex that has no more edges going out). We continue the dfs from the next unmarked vertex. If along this path, we reach an unvisited vertex with no outgoing edges, then we know that there cannot be a reachable vertex from all the other vertices of the graph. Otherwise, we continue until we visit all the vertices of the graph.
+
+Digraph: Find the strongly connected components of the graph. This will allow us to find the kernel DAG, which is itself a DAG with vertices being the strongly connected components. If the kernel DAG has a vertex that can be reached from all the other vertices, then that vertex satisfies the conditions of the problems. Otherwise, such a vertex doesn't exist.
+
+(See DAG_test.cpp, Reachable_vertex_test.cpp, Digraph.h (for DAG), SCC.h (for any Digraph))
+
+4. 2 - satisfiability
+   Directed Euler path
+   Stringly connected components
+   Transitive closure
+   PageRank   
