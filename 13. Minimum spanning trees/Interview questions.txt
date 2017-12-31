@@ -1,0 +1,30 @@
+1. Bottleneck minimum spanning tree. 
+
+Given a connected edge-weighted graph, design an efficient algorithm to find a minimum bottleneck spanning tree. The bottleneck capacity of a spanning tree is the weight of its largest edge. A minimum bottleneck spanning tree is a spanning tree of minimum bottleneck capacity.
+
+Solution:
+Any MST is a bottleneck MST (the converse is not true, of course). Thus we will find a MST. Following Kruskal's algorithm, at each step we choose the minimum crossing edge between two partitions of the graph. For a bottleneck MST, assume we have a partition of the graph into two subsets. Each subset has its own bottleneck MST. To find a bottleneck MST that connects the two subtrees the best option is to choose the minimum crossing edge, exactly as in Kruskal's algorithm.
+
+2. Is an edge in a MST. 
+
+Given an edge-weighted graph G and an edge e, design a linear-time algorithm to determine whether e appears in some MST of G.
+
+Note: Since your algorithm must take linear time in the worst case, you cannot afford to compute the MST itself.
+
+Solution:
+If e = v-w is an edge in a MST then by removing the edge we can put v and w into two subsets that form a partition such that the crossing edges in MST corresponding to each partition have weights <= weight of e. Conversely, if there is a cut of the graph such that v and w are in separate subsets and all the crossing edges in MST between the subsets have weight <= weight of e, then e is an edge in a MST.
+
+We want to build such a cut. We start to built the subset containing v (denote it by A) by adding all the vertices connected to v through edges of weight <= weight of e (Denote the weight of e by w_0). Continue adding vertices to A by applying the same procedure to the newly added vertices to A. In other words, we do a BFS starting from v but use only the edges of weights <= w_0. Mark the vertices in A +1.
+
+Perform the same procedure for w. Denote by B the vertices connected to w and makr them by -1.
+
+If we find vertices that belong both to A and B, then e cannot be an edge in a MST. Otherwise, e is an edge in a MST.
+
+3. Minimum-weight feedback edge set. 
+
+A feedback edge set of a graph is a subset of edges that contains at least one edge from every cycle in the graph. If the edges of a feedback edge set are removed, the resulting graph is acyclic. Given an edge-weighted graph, design an efficient algorithm to find a feedback edge set of minimum weight. Assume the edge weights are positive.
+
+Solution:
+Find a maximum spanning tree. The remaining edges, not included in the maximum spanning tree, is a feedback edge set.
+
+
