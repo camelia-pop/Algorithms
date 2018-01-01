@@ -1,0 +1,28 @@
+1. Monotonic shortest path. 
+
+Given an edge-weighted digraph G, design an Elog(E) algorithm to find a monotonic shortest path from s to every other vertex. A path is monotonic if the sequence of edge weights along the path are either strictly increasing or strictly decreasing.
+
+Solution:
+See MonotoneSP.h
+
+2. Second shortest path. 
+
+Given an edge-weighted digraph and let P be a shortest path from vertex s to vertex t. Design an Elog(V) algorithm to find a path other than P from s to t that is as short as possible. Assume all of the edge weights are strictly positive.
+
+Solution:
+Find the shortest paths from s to all vertices of the graph. distToS O(ElogV)
+
+Reverse the edges of the graph and find the shortest paths from t to all vertices of the graph. distToT O(ElogV)
+
+Find a vertex v such that it minimizez distToS[v] + distToT[v] under the constraint distToS[v] + distToT[v] >= shortest path s-t, and s-v union v-t is not the shortest path. O(V)
+
+3. Shortest path with one skippable edge. 
+
+Given an edge-weighted digraph, design an Elog(V) algorithm to find a shortest path from s to t where you can change the weight of any one edge to zero. Assume the edge weights are nonnegative.
+
+Solution:
+Find the shortest paths from s to all vertices of the graph. distToS, edgeToS O(ElogV)
+
+Reverse the edges of the graph and find the shortest paths from t to all vertices of the graph. distToT, edgeToS O(ElogV)
+
+For all vertices of the graph v, look at all edges emerging from v, v-w. Minimize distToS[v] + distoToT[w] (set weight(v-w) = 0).
