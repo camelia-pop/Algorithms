@@ -14,7 +14,7 @@ The folder contains:
     
     SkippableEdgeSP.cpp (shortest path with skippable edge)
     
-    DirectedEdge.h, EdgeWeightedDigraph.h, EdgeWeightedDigraph.cpp
+    DirectedEdge.h, EdgeWeightedDigraph.h, EdgeWeightedDigraph.cpp, IndexPQ.h, SP.h, SP.cpp
     
     Input files: EdgeWeightedDigraph1.txt, EdgeWeightedDigraph2.txt, EdgeWeightedDigraph3.txt
     
