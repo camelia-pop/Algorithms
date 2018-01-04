@@ -1,0 +1,56 @@
+1. Fattest path. 
+
+Given an edge-weighted digraph and two vertices s and t, design an Elog(E) algorithm to find a fattest path from s to t. The bottleneck capacity of a path is the minimum weight of an edge on the path. A fattest path is a path such that no other path has a lower bottleneck capacity.
+
+Solution:
+(Similar to Lazy Prim algorithm)
+Construct an IndexPQ where we add the edges ordered by their weight (max is at the top of the PQ). The elements are added to the IndexPQ as follows:
+	- start with the edges emerging from the start vertex s and add them to the IndexPQ;
+	- while the IndexPQ is not empty, remove the top edge e from the IndexPQ and visit the vertex e.to();
+	- define a vector bottleneck which assigns to each vertex v the bootleneck in the current fattest path that leads from s to v;
+	- define a vector edgeTo which assigns to each vertex v the edge along which we need to return to s;
+	- when we select e from IndexPQ, let v = e.to(), update bootleneck[v] by the max between previous bootleneck[v] and max{bootleneck[e.from()], e.weight()}; if the edge is actually updated, then set edgeTo[v] = e; if v is visited now for the first time, add to IndexPQ the edges emanating from v. 
+
+
+2. Perfect matchings in k-regular bipartite graphs. 
+
+Suppose that there are n men and n women at a dance and that each man knows exactly k women and each woman knows exactly k men (and relationships are mutual). Show that it is always possible to arrange a dance so that each man and woman are matched with someone they know.
+
+Solution:
+Imagine edges from A to B (A and B each have n elements). Remove one edge (a couple), then we are left with n-1 elements in A and n-1 elements in B, and each element in A has at least k-1 edges to k-1 elements in B, and viceversa. I should think of a procedure to remove edges such that each element of A has exactly k-1 edges to elements of B, and viceversa. Remove another edge, and continue like this until we arrive at a point where we have m elements in A and m elements in B with k = 1. Then this is a matching.
+
+Alternative solution from the web:
+Induction on the number of vertices in the graph.
+http://www.its.caltech.edu/~momar/PerfectMatchingsBipartite.pdf
+
+Algorithm to find a perfect matching: 
+Elements in A are numbered 1 to n.
+Elements in B are numbered n+1 to 2n.
+The elements in A are linked with the elements in B by directed edges from A to B of weight +infinity.
+0 is linked by directed edges of weight 1 to each element in A.
+Elements in B are linked by directed edges of weight 1 to 2n+1.
+
+Apply the max-flow algorithm.
+
+Check that the total flow is n.
+
+To find a pairing between the elements of A and B: find the edges that are completely filled.
+
+3. Maximum weight closure problem. 
+
+A subset of vertices S in a digraph is closed if there are no edges pointing from S to a vertex outside S. Given a digraph with weights (positive or negative) on the vertices, find a closed subset of vertices of maximum total weight.
+
+Solution:
+Assume there is at least a vertex with negative weight with an incoming edge from a vertex of positive weight. Otherwise S will be the set of vertices of positive weights.
+Create a new graph as follows.
+Add a start vertex s and add edges s->v to all vertices v such that weight of v > 0.  The directed edges s->v have weight equal to the weight of v. 
+Add a terminal vertex t and add edges v->t for all vertices v  such that weight of v < 0. The directed edges v->t have weight equal to the absolute value of the weight of v. Add to the new graph all the edges in the original graph and assign weights equal to +infty to each such edge.
+
+Do a max-flow from s to t and find the min-cut. Let C be the set of vertices on the side of s in the min-cut. Then C = S because:
+
+- Notice that C is a closed set because each crossing edge in the min-cut is filled, and so it cannot have weight = +infinity. Thus when we look at a vertex in C it may have an incoming edge from s or an outgoing edge to t, but no outgoing edge to another vertex in the graph.
+
+- To explain (non-rigorously) why C has the maximum weight, we consider the following 2 cases:
+	Case 1: take an edge v->t in the min-cut. Then v is in C. Because v->t is an edge in the min-cut, it is filled to capacity, and so the vertex v can be included in a subgraph containing vertices in C that has extra capacity, in other words, v participates in a subgraph with vertices in C with positive total weight.
+	
+	Case 2: take an edge s->v in the min-cut. Then v is in the complement of C, and v can be included in a subgraph of vertices in the complement of C with positive total weight. This means that the sum of the weights of the vertices in this subgraph is negative and it should not be included in the closed set of maximum weight. 
