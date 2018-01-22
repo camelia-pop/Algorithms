@@ -13,11 +13,15 @@ The order of growth of the running time should be NL^2 (or better) in the worst 
 Signing bonus. Do it in NL time in the worst case.
 
 Solution:
-For each word, form all its cyclic rotations. To form a cyclic rotation by copying the appropriate portions of the word it takes time proportional to L. Each word has L - 1 cyclic rotations, and so to form the vector of words and all their cyclic rotations, it takes time proportional to NL^2. If a cyclic rotation coincides with a cyclic rotation of the same word that has already been added to the vector, we ignore it. The vector of words and their cyclic rotations has size at most NL.
+For each word, form all its cyclic rotations. 
+To form a cyclic rotation by copying the appropriate portions of the word it takes time proportional to L. 
+Each word has L - 1 cyclic rotations, and so to form the vector of words and all their cyclic rotations, 
+it takes time proportional to NL^2. If a cyclic rotation coincides with a cyclic rotation of the same word 
+that has already been added to the vector, we ignore it. The vector of words and their cyclic rotations has size at most NL.
 
-Order the vector of words and their cyclic rotations using LSD radix sort. If there are repetitions then there is a pair of words that are cyclic rotations of one another. Otherwise, there aren't. This operation takes time O(NL) (because R is assumed a fix constant).
-
-To obtain an algorithm using O(NL) time, we should not form the vector of words and their cyclic rotations by copying, but by using pointers to the endpoints of prefix and suffix.
+Order the vector of words and their cyclic rotations using LSD radix sort. 
+If there are repetitions then there is a pair of words that are cyclic rotations of one another. Otherwise, there aren't. 
+This operation takes time O(NL^2) (because R is assumed a fix constant).
 */
 
 #include <iostream>
