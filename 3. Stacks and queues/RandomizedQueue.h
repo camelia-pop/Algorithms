@@ -22,13 +22,35 @@ template <typename T> class RandomizedQueue;
 template <typename T> 
 ostream &print(ostream &, const RandomizedQueue<T> &);
 
+#define RANDOMIZED_QUEUE_H
+
+#include <algorithm>
+#include <ctime>
+#include <iostream>
+#include <memory>
+#include <random>
+#include <utility>
+
+using std::allocator;
+using std::cout;
+using std::endl;
+using std::ostream;
+using std::for_each;
+using std::initializer_list;
+using std::mt19937;
+using std::pair;
+using std::size_t;
+
+template <typename T> class RandomizedQueue;
+
+template <typename T> 
+ostream &print(ostream &, const RandomizedQueue<T> &);
+
 template <typename T> class RandomizedQueue_iterator {
 	friend class RandomizedQueue<T>;
 	public:
-		RandomizedQueue_iterator(const RandomizedQueue_iterator &rqi) {
-			rq = rqi.rq;
-			curr = rqi.curr;
-		};
+		RandomizedQueue_iterator(const RandomizedQueue_iterator &rqi):
+			rq(rqi.rq), curr(rqi.curr) { };
 		RandomizedQueue_iterator &operator=
 			(const RandomizedQueue_iterator &rqi) {
 			rq = rqi.rq;
@@ -112,10 +134,12 @@ RandomizedQueue<T>::RandomizedQueue(RandomizedQueue<T> &&rq):
 template<typename T>
 RandomizedQueue<T> &RandomizedQueue<T>::operator=
 	(const RandomizedQueue<T> &rq) {
-	pair<T*, T*> p = alloc_and_copy(rq.beg, rq.fin);
-	free();
-	beg = p.first;
-	fin = cap = p.second;
+	if (this != &rq) {
+		pair<T*, T*> p = alloc_and_copy(rq.beg, rq.fin);
+		free();
+		beg = p.first;
+		fin = cap = p.second;
+	}
 	return *this;
 }
 
