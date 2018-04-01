@@ -34,7 +34,7 @@ Apply the max-flow algorithm.
 
 Check that the total flow is n.
 
-To find a pairing between the elements of A and B: find the edges that are completely filled.
+To find a pairing between the elements of A and B: find the edges with infinite capacity that have a flow of 1. 
 
 3. Maximum weight closure problem. 
 
@@ -53,4 +53,4 @@ Do a max-flow from s to t and find the min-cut. Let C be the set of vertices on 
 - To explain (non-rigorously) why C has the maximum weight, we consider the following 2 cases:
 	Case 1: take an edge v->t in the min-cut. Then v is in C. Because v->t is an edge in the min-cut, it is filled to capacity, and so the vertex v can be included in a subgraph containing vertices in C that has extra capacity, in other words, v participates in a subgraph with vertices in C with positive total weight.
 	
-	Case 2: take an edge s->v in the min-cut. Then v is in the complement of C, and v can be included in a subgraph of vertices in the complement of C with positive total weight. This means that the sum of the weights of the vertices in this subgraph is negative and it should not be included in the closed set of maximum weight. 
+	Case 2: take an edge s->v in the min-cut. Then v is in the complement of C, and v can be included in a subgraph of vertices in the complement of C with negative total weight. This means that the sum of the weights of the vertices in this subgraph is negative and it should not be included in the closed set of maximum weight. 
