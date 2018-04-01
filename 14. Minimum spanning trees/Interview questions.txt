@@ -12,11 +12,11 @@ Given an edge-weighted graph G and an edge e, design a linear-time algorithm to 
 Note: Since your algorithm must take linear time in the worst case, you cannot afford to compute the MST itself.
 
 Solution:
-If e = v-w is an edge in a MST then by removing the edge we can put v and w into two subsets that form a partition such that the crossing edges in MST corresponding to each partition have weights <= weight of e. Conversely, if there is a cut of the graph such that v and w are in separate subsets and all the crossing edges in MST between the subsets have weight <= weight of e, then e is an edge in a MST.
+If e = v-w is an edge in a MST then, by removing the edge e, we can put v and w into two disjoint MSTs that form a partition such that the crossing edges between the partitions have weights >= weight of e. Conversely, if there is a cut of the graph such that v and w are in separate subsets and all the crossing edges in MST between the subsets have weight >= weight of e, then e is an edge in a MST.
 
-We want to build such a cut. We start to built the subset containing v (denote it by A) by adding all the vertices connected to v through edges of weight <= weight of e (Denote the weight of e by w_0). Continue adding vertices to A by applying the same procedure to the newly added vertices to A. In other words, we do a BFS starting from v but use only the edges of weights <= w_0. Mark the vertices in A +1.
+We want to build such a cut. We start to built the subset containing v (denote it by A) by adding all the vertices connected to v through edges of weight < weight of e. (Denote the weight of e by w_0). Continue adding vertices to A by applying the same procedure to the newly added vertices to A. In other words, we do a BFS starting from v but use only the edges of weights < w_0. Mark the vertices in A +1.
 
-Perform the same procedure for w. Denote by B the vertices connected to w and makr them by -1.
+Perform the same procedure for w. Denote by B the vertices connected to w and mark them by -1.
 
 If we find vertices that belong both to A and B, then e cannot be an edge in a MST. Otherwise, e is an edge in a MST.
 
